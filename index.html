@@ -3,232 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Me</title>
+    <title>My Portfolio</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap" rel="stylesheet">
-    <link rel="icon" href="Images/images.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="icon" href="Images/icon.JPG" type="jpg/gif">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            font-size: 1.2rem;
-            background-image: url('Images/dark-room-1920-x-1080-wallpaper-11p2j3nv6wmdbg6o.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            color: white;
-            padding: 15px;
-        }
-        
-        #answer {
-            border-radius: 20px;
-            border: solid 2px grey;
-            text-align: center;
-            padding: 5px;
-        }
-        .btn-custom {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: white;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            color: black;
-            letter-spacing: 0.1rem;
-            font-weight: 500;
-            border: 2px solid black;
-            transition: 0.3s ease;
-            cursor: pointer;
-        }
-        .btn-custom:hover {
-            background-color: black;
-            color: white;
-            border: 2px solid white;
-        }
-        .moon-dance-regular{
-            font-family: "Moon Dance", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
-        #question{
-            font-family: "Moon Dance", cursive;
-            font-style: normal;
-            font-size: large;
-            font-size: 2rem;
-        }
-        label { 
-            font-family: "Moon Dance", cursive;
-            font-size: 35px;
-            font-weight: bold;
-            border-bottom-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
 
-        #answer {
-            border-radius: 20px;
-            border: solid 2px black;
-            text-align: center;
-            padding: 8px;
-        }
-        .btn-custom{
-            font-size: 20px;
-            padding: 10px 20px;
-        }
-        
-        #idea {
-            text-align: center;  
-            margin: 0 auto;      
-            width: 100%;         
-        }
+body {
+    background-color: rgb(5, 19, 66);
+    background-size: cover;
+    background: #0e0e0e; 
+    color: #ddd; 
+    font-family: "Courier New", monospace;
+}
 
-        .content-hidden {
-            display: none; 
-            opacity: 0;
-            transform: scale(0.8); 
-            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-        }
+a {
+    color: #00ff99; 
+}
 
-        .revealed {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 1;
-            transform: scale(1);
-        }
+@keyframes glitch {
+    0% { text-shadow: 2px 2px red; }
+    50% { text-shadow: -2px -2px blue; }
+    100% { text-shadow: 2px 2px red; }
+}
+.glitch-text {
+    animation: glitch 1s infinite alternate;
+    color: #00ff99;
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
 
-        #lampArea {
-            position: absolute;
-            width: 80px; 
-            height: 100px;
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            z-index: 10;
-            text-align: center;
-            padding: 10px;
-            font-size: 1rem;
-        }
-        .col-12.col-xl-6 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-        }
-        #hiddenContent {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-        }
-        @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
-            }
-            #question {
-                font-size: 1.5rem;
-            }
-            .btn-custom {
-                font-size: 1rem;
-                padding: 8px 15px;
-            }
-        }
+
+.hero-section {
+    height: 100vh;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.card {
+    background: #f4e7c5;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 255, 153, 0.3);
+}
+
+
+.form-control {
+    border: 2px solid #5a3825;
+    background: #f9f3e6;
+}
+form {
+    margin: auto;
+    max-width: 500px;
+}
 
 
 
+footer {
+    font-size: 14px;
+}
+.btn{
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #00ff99;
+    border-radius: 25px;
+    font-size: 1.6rem;
+    color: white;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid white;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: rgb(73, 197, 69);
+}
+.typing-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    border-right: 3px solid white; 
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+    50% { border-right-color: transparent; }
+}
+
+.project-card .btn {
+    font-size: 14px; 
+    padding: 8px 16px; 
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+}
+
+.project-card .btn:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+}
+
+.project-card {
+    color: #555;
+    transition: color 0.3s ease-in-out;
+}
+.project-card:hover {
+    color: #00ff99;
+    text-shadow: 0px 0px 5px #00ff99;
+}
+
+
+.card .btn {
+    font-size: 14px; 
+    padding: 6px 14px; 
+    border-radius: 6px; 
+    transition: all 0.3s ease-in-out;
+}
+
+.card .btn:hover {
+    background-color: whitesmoke !important; 
+    color: black;
+    transform: scale(1.05); 
+}
+
+.hero-image {
+    width: 250px;  
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    border: 3px solid #00ff99;
+}
+
+.social-icons {
+    display: flex;               
+    justify-content: center;     
+    gap: 20px;                   
+    margin-top: 10px;            
+}
+
+.social-icons a {
+    font-size: 30px;             
+    color: #00ff99;                
+    text-decoration: none;      
+}
+
+.social-icons a:hover {
+    transform: scale(1.05);              
+}
+#name{
+    color: #00ff99;
+}
 
     </style>
 </head>
 <body>
-    <div id="lampArea" class="mb-3"><p class="text-dark">I am just a click away</p></div>
-    <div class="content-hidden container-fluid" id="hiddenContent">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 p-4 text-center align-items-center">
-                <div class="container" id="idea">
-                    <h1 class="fs-2">Answer And You May Enter</h1>
-                    <p class="fs-5">Here lays a question a seeker should answer. If you can't answer this, I don't think anyone can.</p>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Daniel Davidson</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section d-flex align-items-center justify-content-center">
+        <div class="container text-center text-md-start">
+            <div class="row align-items-center">
+                <!-- Left Side: Text -->
+                <div class="col-md-6" data-aos="fade-right">
+                    <h2 class="display-4 fw-bold">Hi, I'm <span id="name">Daniel Davidson</span></h2>
+                    <p class="lead typing-text"><span>A passionate </span></p>
+                    <br><br>
+                    <a class="btn" type="submit" href="#contact">Hire Me</a>
+                </div>
+                <!-- Right Side: Image -->
+                <div class="col-md-6 text-center" data-aos="fade-left">
+                    <img src="Images/profile (2).JPG" alt="Daniel Davidson" class="img-fluid rounded-circle hero-image">
                 </div>
             </div>
-        </div>        
-    <br>
-    <section id="question" class="bg-transparent">
-        <form onsubmit="return checkAnswer(event)" class="p-4">
-            <label id="riddle-text"><strong></strong></label> 
-            <br><br>
-            <input type="text" id="answer" class="bg-transparent" required>
-            <br><br>
-            <button type="submit" class="btn-custom bg-transparent">Check The Answer</button>
-        </form>
+        </div>
+    </section>
+    
+
+    
+    <section id="about" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="fw-bold">About Me</h2>
+            <p class="lead text-muted">
+                I am a <b>front-end developer</b> from Kerala, skilled in <b>HTML, CSS, JavaScript, and Bootstrap.</b>  
+                I also have knowledge of <b>Node.js, Python, and other programming languages.</b>  
+                <br><br>
+                I graduated in 2024 with a <b>BCA degree</b> and currently do freelance work as a <b>front-end developer, programmer, and web developer.</b>  
+                <br><br>
+                I am also learning <b>Full-Stack Development.</b>  
+                Feel free to go through my website, and if you're interested, contact me via my socials or the form below.  
+                <br><br>
+                <b>Thank you for visiting!</b>
+            </p>
+        </div>
     </section>
 
-    <script>
-        
-        const riddles = [
-            { question: "I have seas without water, coasts without sand, towns without people, and mountains without land. What am I?", answer: "map" },
-            { question: "The more you take, the more you leave behind. What am I?", answer: "footsteps" },
-            { question: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?", answer: "echo" },
-            { question: "What runs, but never walks. Murmurs, but never talks. Has a bed, but never sleeps. And has a mouth, but never eats?", answer:["a river", "river"] },
-            { question: "What belongs to you but other people use it more than you?", answer: ["name","my name"]},
-            { question: "The more of this there is, the less you see. What is it?", answer: ["darkness", "fog"]},
-            { question: "What can fill a room but takes up no space?", answer: "light"}
-        ]; 
-
-        
-        let selectedRiddle = riddles[Math.floor(Math.random() * riddles.length)];
-
-        
-        document.getElementById("riddle-text").innerText = selectedRiddle.question;
-
-        function checkAnswer(event) {
-            event.preventDefault(); 
-            let userAnswer = document.getElementById("answer").value.trim().toLowerCase();
     
-        if (Array.isArray(selectedRiddle.answer)) { 
-            if (selectedRiddle.answer.includes(userAnswer)) {
-            alert("Congratulations! You will enter now.");
-            window.location.href = "website.html"; 
-            } else {
-            alert("Wrong answer. Try again!");
-            }
-        } else {
-            if (userAnswer === selectedRiddle.answer) {
-                alert("Congratulations! You will enter now.");
-                window.location.href = "website.html"; 
-            } else {
-            alert("Wrong answer. Try again!");
-            }
-        }
-        }
+    <section id="projects" class="py-5 text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-4 text-white">Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Calculator App</h5>
+                            <p class="card-text text-muted">A simple and responsive calculator built using JavaScript.</p>
+                            <a href="https://github.com/Travelling-Human/Front-End-Projects/tree/main/Calulater" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Responsive Web Login</h5>
+                            <p class="card-text text-muted">A simple Login page made using html, css alone.</p>
+                            <a href="https://github.com/Travelling-Human/Front-End-Projects/tree/main/Responsive%20Login%20Page" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">A simple Registration Form</h5>
+                            <p class="card-text text-muted">A Registration page for Creating Acccounts. Made using html and css only.</p>
+                            <a href="https://github.com/Travelling-Human/Front-End-Projects/tree/main/Registration%20Form" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Decimal-to-Binary converter</h5>
+                            <p class="card-text text-muted">A webpage made to convert decimal value to binary values. made using html, css, and JavaScript</p>
+                            <a href="https://github.com/Travelling-Human/Front-End-Projects/tree/main/Decimal-to-Binary%20converter" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Password Generator</h5>
+                            <p class="card-text text-muted">A web page made to generate password upto 20 characters in length with alpha-numeral and special characters. made using html, cs, and JavaScript</p>
+                            <a href="https://github.com/Travelling-Human/Front-End-Projects/tree/main/Password%20Generator" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Text based RPG Game</h5>
+                            <p class="card-text text-muted">A text based RPG game with diffrent methods to win and an easter egg. made using html, cs, and JavaScript</p>
+                            <a href="https://github.com/Travelling-Human/RPG-web-Game" class="btn btn-primary btn-sm rounded-pill">Take a look here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    
+    <section id="contact" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="text-dark">Contact Me</h2>
+            <p class="text-muted">Feel free to reach out via the form below.</p>
+            <form action="https://api.web3forms.com/submit" method="POST" class="mt-4 mx-auto" style="max-width: 400px;">
+                <input type="hidden" name="access_key" value="31ea44fe-db17-4358-98a4-fae2ab6af028">
+                <input type="text" name="name" class="form-control my-2" placeholder="Your Name" required>
+                <input type="email" name="email" class="form-control my-2" placeholder="Your Email" required>
+                <textarea name="message" class="form-control my-2" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary w-100">Send</button>
+            </form>
+        </div>
+    </section>
 
-        document.getElementById("lampArea").addEventListener("click", function() {
-            let content = document.getElementById("hiddenContent");
-            let lampText = document.getElementById("lampArea");
+    
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2025 Your Name. All Rights Reserved.
+        <div class="social-icons">
+            <a href="https://github.com/Travelling-Human" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/daniel-davidson-763bb9309/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/@daniel_davidson_Official" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="t.me/@Danaryus_Targarian" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+        </div>
+    </footer>
 
-            content.classList.add("revealed"); 
-            lampText.style.display = "none";  
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+
+        searchInput?.addEventListener('input', function() {
+            let searchText = searchInput.value.toLowerCase();
+            let items = document.querySelectorAll('.notice, .announcement, .event, .medal');
+
+        items.forEach(item => {
+            let text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchText) ? "block" : "none";
+                });
+            });
         });
 
 
-    </script>
 
-    </div>
+        const words = ["A Passionate Front-End Developer", "Learning Programmer", "Newbie Web Developer", "Always a Student"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 75; 
+        const erasingSpeed = 35;  
+        const delayBetweenWords = 1500; 
+
+        function typeEffect() {
+            const typingText = document.querySelector(".typing-text");
+            const currentWord = words[wordIndex];
+    
+        if (!isDeleting) {
+            typingText.textContent = currentWord.slice(0, charIndex++);
+        } else {
+            typingText.textContent = currentWord.slice(0, charIndex--);
+        }
+
+        if (!isDeleting && charIndex > currentWord.length) {
+            setTimeout(() => isDeleting = true, delayBetweenWords);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setTimeout(typeEffect, isDeleting ? erasingSpeed : typingSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeEffect, 500);
+});
+
+
+    </script>
+       
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,  
+        once: true      
+    });
+</script>
+
 </body>
 </html>
+
